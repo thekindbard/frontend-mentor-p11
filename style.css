@@ -9,15 +9,25 @@
 }
 body {
     font-family: Montserrat;
+    background-image: url(./images/);
+    background-color: var(--very-light-grayish-blue);
+    position: relative;
+    margin: 0;
+    background-image: url(./images/bg-bottom.svg), url(./images/bg-top.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-size: 30%, 30%;
+    background-position: bottom left, top right;
+    height: 100vh;
 }
 
 header {
     text-align: center;
-    margin: 4em 0;
+    padding: 3em 0;
 }
 
 header h1 {
     color: var(--grayish-blue);
+    margin: 0 0 1em 0;
 }
 
 header .modality > * {
@@ -32,6 +42,11 @@ header .button {
     background-image: linear-gradient(to right, transparent 0%, transparent 25%, hsl(236, 72%, 79%) 25%, hsl(237, 63%, 64%) 75%, transparent 75%, transparent 100%);
     margin: 0 10px;
     position: relative;
+    cursor: pointer;
+}
+
+header .button:active {
+    background-image: linear-gradient(to right, transparent 0%, transparent 25%, var(--light-grayish-blue) 25%, var(--light-grayish-blue) 75%, transparent 75%, transparent 100%);
 }
 
 header .button::before {
@@ -43,6 +58,12 @@ header .button::before {
     position: absolute;
     left: 0px;
     border-radius: 50%;
+}
+header .button:active:before {
+    background-image: linear-gradient(to right, var(--light-grayish-blue) 0%,var(--light-grayish-blue) 50%, transparent 100%);
+}
+header .button:active:after {
+    background-image: linear-gradient(to left, var(--light-grayish-blue), 0%, var(--light-grayish-blue) 50%, transparent 100%);
 }
 header .button::after {
     content: "";
@@ -64,101 +85,114 @@ header .button__circle {
     right: 2px;
 }
 main {
-    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main > div {
+    width: 30%;
+    min-width: 150px;
+    max-width: 300px;
+    margin-bottom: 1em;
 }
 table {
-    margin: auto;
-    border-spacing: 20px 0;
-}
-table .price td::before {
-    content: "$";
-    font-size: 0.7em;
-    vertical-align: middle;
-    margin-right: 10px;
-}
-table tr:first-child th {
-    background-color: transparent;
-}
-table tr:not(:first-of-type) th, table tr:not(:last-of-type) td{
-    width: 20%;
-    min-width: 200px;
-    padding: 15px 0;
     text-align: center;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    color: var(--grayish-blue);
+    padding: 0 20px;
+    background-color: white;
 }
-table thead tr:first-of-type th,
-table tbody tr:last-of-type td
-{
-    padding: 8px 0;
+div:first-child table {
+    border-radius: .7em 0 0 .7em ;
 }
-table th {
-border-radius: 10px 10px 0 0 ;
-background-color: white;
+div:nth-child(2) table {
+    border-radius: .7em;
 }
-table tr:nth-of-type(2) th:nth-of-type(2) {
-    border-radius: 0;
+div:last-child table {
+    border-radius: 0 .7em .7em 0 ;
 }
-table tbody tr:not(tr:nth-of-type(5), tr:last-of-type) td {
+table tr:nth-of-type(2) td::before {
+    content: "$";
+    font-size: .7em;
+    vertical-align: middle;
+}
+table td, table th {
+    padding: 1em 0;
+}
+table tr:not(tr:last-child) td {
     border-bottom: 1px solid var(--light-grayish-blue);
 }
-table tr:first-child td {
+
+div table tr:nth-of-type(2) td {
     font-size: 3em;
+    padding: 0.5em 0;
 }
-table tr:last-child td {
-    border-radius:  0 0 10px 10px;
-    color: transparent;
-}
-table tr:nth-of-type(5) td:first-of-type, 
-table tr:nth-of-type(5) td:last-of-type
-{
-    border-radius:  0 0 10px 10px;
+div:not(div:nth-child(2)) table tr:nth-of-type(2) td {
+    color:var(--dark-grayish-blue);
 }
 
-table tr:nth-of-type(5) td button {
-    padding: 10px;
+div:nth-of-type(2) table {
+    background-image: var(--gradient);
+    color: white;
+}
+
+div:nth-of-type(2) table th{
+    padding-top: 3em;
+}
+div:nth-of-type(2) table tr:last-child td{
+    padding-bottom: 3em;
+}
+main div button {
     width: 80%;
-}
-table td:first-of-type {
-    background-color: white;
-}
-table td:nth-of-type(2),
-table th:nth-of-type(2) {
-    background-image: var(--gradient);
-    color: white;
-}
-table td:last-of-type {
-    background-color: white;
-}
-table tr:last-of-type td:first-of-type,
-table tr:last-of-type td:last-of-type
- {
-     background-color: transparent;
-}
-table button {
-    border: none;
-    border-radius: 5px;
-    text-transform: uppercase;
+    padding: 10px 0;
+    border-radius: .5em;
+    border: 1px solid transparent;
     font-weight: bold;
-}
-table td:last-of-type button,
-table td:first-of-type button {
     background-image: var(--gradient);
     color: white;
+    cursor: pointer;
+    text-transform: uppercase;
 }
-table td:nth-of-type(2) button {
+main div button:active {
+    border-radius: 10px;
+    background-image: none;
     background-color: white;
-    color: hsl(236, 72%, 79%);
+    border:1px solid var(--grayish-blue);
+    color: hsl(237, 63%, 64%);
 }
-table button:active
- {
-    box-shadow: 0 0 7px gray;
+main div:nth-of-type(2) button {
+    background-image: none;
+    background-color: white;
+    color: hsl(237, 63%, 64%);
+}
+main div:nth-of-type(2) button:active {
+    background-image:var(--gradient);
+    color: white;
+    border: 1px solid white;
+}
+main {
+    background-color: transparent;
 }
 
-    
-    
-    
-    
-    
-    
-    
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
+
+@media (max-width:750px) {
+    body {
+    background-size: 50%, 50%;
+    height: auto;
+    }
+    main > div {
+        width: 100%;
+    }
+    main div table,
+    main div:first-child table,
+    main div:last-child table {
+        border-radius: 0.7em;
+        margin-bottom: 1.5em;
+    }
+    main {
+        flex-direction: column;
+    }
+}

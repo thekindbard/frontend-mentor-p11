@@ -7,11 +7,12 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="./style.css">
   
-  <title>Frontend Mentor | [Challenge Name Here]</title>
+  <title>Frontend Mentor | Pricing component with toggle challenge hub</title>
 
 </head>
 <body>
 
+  
   <header>
     <h1>Our Pricing</h1>
     <div class="modality">
@@ -19,58 +20,46 @@
       <div class="button">
         <div class="button__circle"></div>
       </div>
-      <span>Monthly</span>
+      <span>Montdly</span>
     </div>
   </header>
   
 <main>
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-      <tr>
+    <div>
+      <table>
         <th>Basic</th>
+          <tr class="price"><td>1999</td></tr>
+          <tr><td>500 GB Storage</td></tr>
+          <tr><td>2 Users Allowed</td></tr>
+          <tr><td>Send up to 3 GB</td></tr>
+          <tr><td><button type="button">Learn More</button></td></tr>
+      </table>
+    </div>
+
+    <div>
+      <table>
         <th>Professional</th>
+          <tr class="price"><td>2499</td></tr>
+          <tr><td>1 TB Storage</td></tr>
+          <tr><td>5 Users Allowed</td></tr>
+          <tr><td>Send up to 10 GB</td></tr>
+          <tr><td><button type="button">Learn More</button></td></tr>
+      </table>
+    </div>
+
+    <div>
+      <table>
         <th>Master</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="price">
-        <td>1999</td>
-        <td>2499</td>
-        <td>3999</td>
-      </tr>
-      <tr>
-        <td>500 GB Storage</td>
-        <td>1 TB Storage</td>
-        <td>2 TB Storage</td>
-      </tr>
-      <tr>
-        <td>2 Users Allowed</td>
-        <td>5 Users Allowed</td>
-        <td>10 Users Allowed</td>
-      </tr>
-      <tr>
-        <td>Send up to 3 GB</td>
-        <td>Send up to 10 GB</td>
-        <td>Send up to 20 GB</td>
-      </tr>
-      <tr>
-        <td><button type="button">Learn More</button></td>
-        <td><button type="button">Learn More</button></td>
-        <td><button type="button">Learn More</button></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+          <tr class="price"><td>3999</td></tr>
+          <tr><td>2 TB Storage</td></tr>
+          <tr><td>10 Users Allowed</td></tr>
+          <tr><td>Send up to 20 GB</td></tr>
+          <tr><td><button type="button">Learn More</button></td></tr>
+      </table>
+    </div>
+
 </main>
+
 
 <script>
 
@@ -88,12 +77,12 @@
     changeButton();
     if(price_boolean) {
       price.forEach( td => {
-        td.textContent = (td.textContent*10).toFixed(2);
+        td.textContent = (parseFloat(td.textContent*10) + 0.09).toFixed(2);
       });
       price_boolean = !price_boolean
     } else {
       price.forEach( td => {
-        td.textContent = (td.textContent/10).toFixed(2);
+        td.textContent = ((td.textContent-0.09)/10).toFixed(2);
       });
       price_boolean = !price_boolean
     }

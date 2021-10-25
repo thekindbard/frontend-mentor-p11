@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+:root {
+ --very-light-grayish-blue: hsl(240, 78%, 98%);
+ --light-grayish-blue: hsl(234, 14%, 74%);
+ --grayish-blue: hsl(233, 13%, 49%);
+ --dark-grayish-blue: hsl(232, 13%, 33%);
+ --gradient: linear-gradient(to right, hsl(236, 72%, 79%) 0%, hsl(237, 63%, 64%) 100%);
+}
+body {
+    font-family: Montserrat;
+}
+
+header {
+    text-align: center;
+    margin: 4em 0;
+}
+
+header h1 {
+    color: var(--grayish-blue);
+}
+
+header .modality > * {
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--light-grayish-blue);
+}
+
+header .button {
+    width: 40px;
+    height: 1.5em;
+    background-image: linear-gradient(to right, transparent 0%, transparent 25%, hsl(236, 72%, 79%) 25%, hsl(237, 63%, 64%) 75%, transparent 75%, transparent 100%);
+    margin: 0 10px;
+    position: relative;
+}
+
+header .button::before {
+    content: "";
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    background-image: linear-gradient(to right, hsl(236, 72%, 79%) 0%,hsl(236, 72%, 79%) 50%, transparent 100%);
+    position: absolute;
+    left: 0px;
+    border-radius: 50%;
+}
+header .button::after {
+    content: "";
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    background-image: linear-gradient(to left, hsl(237, 63%, 64%), 0%,hsl(237, 63%, 64%) 50%, transparent 100%);
+    position: absolute;
+    right: 0px;
+    border-radius: 50%;
+}
+header .button__circle {
+    width: 1.5rem;
+    height: 90%;
+    background-color: white;
+    z-index: 10;
+    border-radius: 50%;
+    position: absolute;
+    right: 2px;
+}
+main {
+    background-color: transparent;
+}
+table {
+    margin: auto;
+    border-spacing: 20px 0;
+}
+table .price td::before {
+    content: "$";
+    font-size: 0.7em;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+table tr:first-child th {
+    background-color: transparent;
+}
+table tr:not(:first-of-type) th, table tr:not(:last-of-type) td{
+    width: 20%;
+    min-width: 200px;
+    padding: 15px 0;
+    text-align: center;
+}
+table thead tr:first-of-type th,
+table tbody tr:last-of-type td
+{
+    padding: 8px 0;
+}
+table th {
+border-radius: 10px 10px 0 0 ;
+background-color: white;
+}
+table tr:nth-of-type(2) th:nth-of-type(2) {
+    border-radius: 0;
+}
+table tbody tr:not(tr:nth-of-type(5), tr:last-of-type) td {
+    border-bottom: 1px solid var(--light-grayish-blue);
+}
+table tr:first-child td {
+    font-size: 3em;
+}
+table tr:last-child td {
+    border-radius:  0 0 10px 10px;
+    color: transparent;
+}
+table tr:nth-of-type(5) td:first-of-type, 
+table tr:nth-of-type(5) td:last-of-type
+{
+    border-radius:  0 0 10px 10px;
+}
+
+table tr:nth-of-type(5) td button {
+    padding: 10px;
+    width: 80%;
+}
+table td:first-of-type {
+    background-color: white;
+}
+table td:nth-of-type(2),
+table th:nth-of-type(2) {
+    background-image: var(--gradient);
+    color: white;
+}
+table td:last-of-type {
+    background-color: white;
+}
+table tr:last-of-type td:first-of-type,
+table tr:last-of-type td:last-of-type
+ {
+     background-color: transparent;
+}
+table button {
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+table td:last-of-type button,
+table td:first-of-type button {
+    background-image: var(--gradient);
+    color: white;
+}
+table td:nth-of-type(2) button {
+    background-color: white;
+    color: hsl(236, 72%, 79%);
+}
+table button:active
+ {
+    box-shadow: 0 0 7px gray;
+}
+
+    
+    
+    
+    
+    
+    
+    
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
